@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{maths}
+\usepackage{chalkdust-maths}
 \usepackage{comment}
 
 \newenvironment{doctable}{
@@ -15,8 +15,20 @@
 \begin{document}
 \maketitle
 
-\verb@chalkdust-maths@ is a package for \LaTeX{} that provides common mathematical commands. To use it, put \verb@\usepackage{chalkdust-maths}@
-at the top of your TeX file.
+\verb@chalkdust-maths@ is a package for \LaTeX{} that provides common mathematical commands.
+To use it, put \verb@\usepackage{chalkdust-maths}@ at the top of your LaTeX file,
+or put \verb@\usepackage[xetex]{chalkdust-maths}@ at the top of your XeLaTeX file.
+
+\section{Options}
+You can pass the following options into the \verb@chalkdust-maths@ package:
+
+\begin{tabular}{|l|l|}
+    \hline
+    Option&Description\\
+    \hline
+    \verb@words@&Use words instead of symbols for grad and curl\\\hline
+    \verb@xetex@&Put package in XeTeX mode\\\hline
+\end{tabular}
 
 \section{Vector calculus operators}
 
@@ -26,6 +38,8 @@ at the top of your TeX file.
     \docline{Vector del}{\vdel}{\vdel}
     \docline{Vector grad}{\vgrad}{\vgrad}
     \docline{Cross product}{\cross}{\cross}
+    \docline{Div}{\divv}{\divv\v{x}}
+    \docline{Curl}{\curl}{\curl\v{x}}
     \docline{Laplacian}{\Lap}{\Lap}
 \end{doctable}
 

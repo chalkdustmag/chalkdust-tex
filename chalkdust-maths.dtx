@@ -1,8 +1,14 @@
 % <*impackages>
 \usepackage{ifthen}
 \usepackage{bm}
-\usepackage{ifxetex}
 \usepackage{amsmath}
+\ProvidesPackage{chalkdust-maths}
+\newif\ifxetex
+\newif\ifwords
+\DeclareOption{xetex}{\xetextrue}
+\DeclareOption{words}{\wordstrue}
+\ProcessOptions\relax
+
 \ifxetex
     \usepackage{unicode-math}
 \else
@@ -28,6 +34,13 @@
 \newcommand{\vdel}{\mathbf{\nabla}}
 \newcommand{\vgrad}{\mathbf{\nabla}}
 \newcommand{\cross}{{\times}}
+\ifwords
+    \newcommand{\divv}{\operatorname{div}} 
+    \newcommand{\curl}{\operatorname{\mathbf{curl}}} 
+\else
+    \newcommand{\divv}{\grad\cdot} 
+    \newcommand{\curl}{\grad\cross} 
+\fi
 \newcommand{\Lap}{{\nabla^2}} 
 %
 % Vectors/Tensors etc
@@ -45,7 +58,7 @@
 %	
 % Misc
 %
-\newcommand{\trans}{\mathrm{T}}
+\newcommand{\trans}{^\mathrm{T}}
 \newcommand{\cosec}{\operatorname{cosec}}
 \newcommand{\cosech}{\operatorname{cosech}}
 \newcommand{\sech}{\operatorname{sech}}
