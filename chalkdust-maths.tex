@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{maths}
+\usepackage{comment}
+
+\newenvironment{doctable}{
+    \begin{tabular}{|l|l|l|}
+    \hline
+    Command&Description&Example\\
+    \hline
+    \hline}{\end{tabular}}
+\newcommand{\docline}[3]{\texttt{\detokenize{#2}}&#1&\texttt{\detokenize{#3}} gives $\displaystyle#3$\\\hline}
+
+\title{Chalkdust v\input{VERSION}}
+\author{Matthew W.~Scroggs \& Adam K.~Townsend}
+\begin{document}
+\maketitle
+
+\verb@chalkdust-maths@ is a package for \LaTeX{} that provides common mathematical commands. To use it, put \verb@\usepackage{chalkdust-maths}@
+at the top of your TeX file.
+
+\section{Vector calculus operators}
+
+\begin{doctable}
+    \docline{Del operator}{\del}{\del}
+    \docline{Grad operator}{\grad}{\grad}
+    \docline{Vector del}{\vdel}{\vdel}
+    \docline{Vector grad}{\vgrad}{\vgrad}
+    \docline{Cross product}{\cross}{\cross}
+    \docline{Laplacian}{\Lap}{\Lap}
+\end{doctable}
+
+\section{Vectors, tensors, etc}
+
+\begin{doctable}
+    \docline{Vector}{\v}{\v{x}}
+    \docline{Matrix}{\m}{\m{A}}
+    \docline{Tensor}{\t}{\t{A}}
+    \docline{Basis}{\b}{\b{B}}
+    \docline{Upright tensor}{\tu}{\tu{A}}
+\end{doctable}
+
+\section{Operators}
+\begin{doctable}
+    \docline{Real part}{\Real}{\Real}
+    \docline{Imaginary part}{\Imag}{\Imag}
+    \docline{Cosecant}{\cosec}{\cosec}
+    \docline{Hyperbolic cosecant}{\cosech}{\cosech}
+    \docline{Hyperbolic secant}{\sech}{\sech}
+    \docline{Sign}{\sgn}{\sgn}
+    \docline{Error function}{\erf}{\erf}
+    \docline{Complementary error function}{\erfc}{\erfc}
+\end{doctable}
+
+\section{Matrix operators}
+\begin{doctable}
+    \docline{Transpose}{\trans}{\m{A}\trans}
+    \docline{Trace}{\tr}{\tr(\m{A})}
+\end{doctable}
+
+\section{Calculus}
+\begin{doctable}
+    \docline{Full derivative}{\fd}{\fd{y}{x}}
+    \docline{Full second derivative}{\fdd}{\fdd{y}{x}}
+    \docline{Full $n$th derivative}{\fd}{\fd[5]{y}{x}}
+    \docline{Partial derivative}{\pd}{\pd{y}{x}}
+    \docline{Partial second derivative}{\pdd}{\pdd{y}{x}}
+    \docline{Partial $n$th derivative}{\pd}{\pd[5]{y}{x}}
+    \docline{Material derivative}{\Dt}{\Dt{x}}
+\end{doctable}
+
+\end{document}

@@ -1,3 +1,16 @@
+% <*impackages>
+\usepackage{ifthen}
+\usepackage{bm}
+\usepackage{ifxetex}
+\usepackage{amsmath}
+\ifxetex
+    \usepackage{unicode-math}
+\else
+    \newcommand{\mathbfit}{\bm}
+    \newcommand{\mathbfsfit}{\bm}
+    \newcommand{\mathbfsf}{\bm}
+\fi
+% </impackages>
 % <*MATHS>
 %
 %
@@ -16,7 +29,6 @@
 \newcommand{\vgrad}{\mathbf{\nabla}}
 \newcommand{\cross}{{\times}}
 \newcommand{\Lap}{{\nabla^2}} 
-\newcommand{\uctd}[1]{\overset{\nabla}{#1}}		
 %
 % Vectors/Tensors etc
 %
@@ -30,13 +42,6 @@
 %
 \newcommand{\Real}{\operatorname{Re}}
 \newcommand{\Imag}{\operatorname{Im}}
-%
-% Non-dim numbers
-%
-\newcommand{\Rey}{\text{\textit{Re}}}
-\newcommand{\Pec}{\text{\textit{Pe}}}	
-\newcommand{\Wei}{\text{\textit{Wi}}}
-\newcommand{\Deb}{\text{\textit{De}}}	
 %	
 % Misc
 %
@@ -52,15 +57,15 @@
 % Differentiating
 %
 \newcommand{\Dt}[1]{\frac{\mathrm{D}#1}{\mathrm{D}t}}
-\newcommand{\fd}[2]{\frac{\d #1}{\d #2}}
+\newcommand{\fd}[3][]{\frac{\d\ifthenelse{\equal{}{#1}}{}{^#1} #2}{\d\ifthenelse{\equal{}{#1}}{}{^#1} #3}}
 \newcommand{\fdd}[2]{\frac{\d^2 #1}{\d #2^2}}
-\newcommand{\fddd}[2]{\frac{\d^3 #1}{\d #2^3}}
-\newcommand{\fdddd}[2]{\frac{\d^4 #1}{\d #2^4}}
 \newcommand{\fdn}[3]{\frac{\d^{#1} #2}{\d #3^{#1}}}
-\newcommand{\pd}[2]{\frac{\p #1}{\p #2}}
+\newcommand{\pd}[3][]{\frac{\p\ifthenelse{\equal{}{#1}}{}{^#1} #2}{\p\ifthenelse{\equal{}{#1}}{}{^#1} #3}}
 \newcommand{\pdd}[2]{\frac{\p^2 #1}{\p #2^2}}
 \newcommand{\pddmixed}[3]{\frac{\p^2 #1}{\p #2 \p #3}}
 \newcommand{\pddd}[2]{\frac{\p^3 #1}{\p #2^3}}
+\newcommand{\fddd}[2]{\frac{\d^3 #1}{\d #2^3}}
+\newcommand{\fdddd}[2]{\frac{\d^4 #1}{\d #2^4}}
 %
 % Two and three-part definitions
 %
@@ -125,6 +130,26 @@
 \newcommand{\colvec}{\rcvector}
 \newcommand{\rowvec}{\rcvector}
 \renewcommand{\binom}{\rcvector}		
+
+
+%
+%
+%
+% Undocumented specifics
+%
+\newcommand{\uctd}[1]{\overset{\nabla}{#1}}
+%
+% Non-dim numbers
+%
+\newcommand{\Rey}{\text{\textit{Re}}}
+\newcommand{\Pec}{\text{\textit{Pe}}}	
+\newcommand{\Wei}{\text{\textit{Wi}}}
+\newcommand{\Deb}{\text{\textit{De}}}	
+%
+%
+%
+%
+%
 %
 %
 %
