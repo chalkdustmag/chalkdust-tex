@@ -1,2 +1,2 @@
-# maths-tex
+# chalkdust-maths
 Useful maths TeX commands
