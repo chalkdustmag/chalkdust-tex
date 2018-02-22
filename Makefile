@@ -12,7 +12,7 @@ STYOUT = $(MYTMP)
 
 all: sty doc ctan
 
-ctan: sty doc
+ctan: doc
 	mkdir -p $(OUTPUT);rm -rf $(MYTMP)/zip;mkdir -p $(MYTMP)/zip/$(THIS);cd $(MYTMP)/zip;cp $(HERE)/chalkdust-maths.tex $(HERE)/README.md $(TEXOUT)/chalkdust-maths.pdf $(HERE)/chalkdust-maths.dtx $(HERE)/chalkdust-maths.ins $(THIS);zip -r chalkdust-maths .;cp chalkdust-maths.zip $(OUT)
 
 sty:
