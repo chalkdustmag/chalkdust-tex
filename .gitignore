@@ -1,5 +1,6 @@
 .*.swp
 tmp/*
+*.zip
 *.pdf
 *.sty
 ## Core latex/pdflatex auxiliary files:
