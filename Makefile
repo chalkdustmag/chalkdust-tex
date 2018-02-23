@@ -1,22 +1,21 @@
-THIS = chalkdust-maths
+THIS = chalkdust-tex
 HERE = $(shell pwd)
-OUTPUT = output
-OUT = $(HERE)/$(OUTPUT)
-TMP = /tmp
-MYTMP = $(TMP)/$(THIS)
+OUTPUT = $(HERE)
+MYTMP = $(HERE)/tmp
+TEXOUT = $(OUTPUT)
+STYOUT = $(OUTPUT)
 
-TEXOUT = $(MYTMP)
-STYOUT = $(MYTMP)
-
-.PHONY: all ctan
+.PHONY: all ctan sty doc zip
 
 all: sty doc ctan
 
-ctan: doc
-	mkdir -p $(OUTPUT);rm -rf $(MYTMP)/zip;mkdir -p $(MYTMP)/zip/$(THIS);cd $(MYTMP)/zip;cp $(HERE)/chalkdust-maths.tex $(HERE)/README.md $(TEXOUT)/chalkdust-maths.pdf $(HERE)/chalkdust-maths.dtx $(HERE)/chalkdust-maths.ins $(THIS);zip -r chalkdust-maths .;cp chalkdust-maths.zip $(OUT)
+ctan: sty doc zip
 
 sty:
-	mkdir -p $(STYOUT);latex -output-directory=$(STYOUT) chalkdust-maths.ins; cp $(STYOUT)/chalkdust-maths.sty $(OUTPUT);cp $(STYOUT)/chalkdust-maths.sty $(HERE)
+	mkdir -p $(STYOUT);latex -output-directory=$(STYOUT) chalkdust-tex.ins
 
 doc:
-	mkdir -p $(TEXOUT);pdflatex -output-directory=$(TEXOUT) chalkdust-maths.tex;cp $(TEXOUT)/chalkdust-maths.pdf $(OUTPUT)
+	mkdir -p $(TEXOUT);pdflatex -output-directory=$(TEXOUT) chalkdust-tex.dtx
+
+zip:
+	mkdir -p $(OUTPUT);rm -rf $(MYTMP);mkdir -p $(MYTMP)/zip/$(THIS);cd $(MYTMP)/zip;cp $(HERE)/README.md $(TEXOUT)/chalkdust-tex.pdf $(HERE)/chalkdust-tex.dtx $(HERE)/chalkdust-tex.ins $(THIS);zip -r chalkdust-tex .;cp chalkdust-tex.zip $(OUTPUT)
