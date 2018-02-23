@@ -1,5 +1,5 @@
 .*.swp
-output/*
+tmp/*
 *.pdf
 *.sty
 ## Core latex/pdflatex auxiliary files:
